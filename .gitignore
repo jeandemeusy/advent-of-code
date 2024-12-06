@@ -1,1 +1,13 @@
-env
+# cache
+__pycache__/
+.pytest_cache/
+
+# envs
+.venv*/
+env*/
+*.env
+*.direnv
+
+# misc
+*.DS_Store
+.temp*/*
