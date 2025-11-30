@@ -11,3 +11,7 @@ env*/
 # misc
 *.DS_Store
 .temp*/*
+
+# rust build
+target/
+**/target/ 

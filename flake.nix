@@ -13,18 +13,15 @@
     in rec {
       devShell = pkgs.mkShell {
         buildInputs = with pkgs; [
-          python39
-          python39Packages.venvShellHook
+          python314
+          uv
+          rustc
+          cargo
+          clippy
+          rustfmt
         ];
 
-        venvDir = "./.venv";
-        postVenvCreation = ''
-          unset SOURCE_DATE_EPOCH
-          pip install -U pip setuptools wheel
-          pip install -r requirements.txt
-        '' + pkgs.lib.optionalString pkgs.stdenv.isLinux ''
-          autoPatchelf ./.venv
-        '';
+        shellHook = ''uv sync'';
       };
     }
   );
